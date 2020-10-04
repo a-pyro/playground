@@ -43,3 +43,50 @@ function toJadenCase(str) {
 }
 
 // console.log(toJadenCase(`How can mirrors be real if our eyes aren't real`));
+
+/*
+Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+
+Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers. 
+*/
+
+function order(words) {
+    // separate the string into an array to iterate
+    let splittedWords = words.split(' ');
+    // second array where i'll push the words in the right order
+    let orderedWords = [];
+    //  how to get the number out of the string? by checking if isNaN('3')=> false
+    // 2 for of loops
+    // one through each array elment
+
+    // iterating each word
+    for (let word of splittedWords) {
+        // iterating through the strings
+        for (let char of word) {
+            // if the character is a letter
+            if (isNaN(char)) {
+                // move to next iteration
+                continue;
+            } else {
+                // is a number
+                orderedWords[char] = word; //assign it to the arrray 
+            }
+        }
+    }
+    return words === '' ? '' : orderedWords.join(' ').trim()
+
+
+
+
+
+}
+
+console.log(order("is2 Thi1s T4est 3a"));
+
+// console.log(isNaN('g'));
+
+// for (let char of 'hello') {
+//     console.log(char);
+// }
