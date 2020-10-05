@@ -122,4 +122,44 @@ function findOdd(numbers) {
 
 }
 
-console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+// console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+
+
+/* You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+Implement a function likes :: [String] -> String, which must take in input array, containing the names of people who like an item. It must return the display text as shown in the examples:
+
+likes [] -- must be "no one likes this"
+likes ["Peter"] -- must be "Peter likes this"
+likes ["Jacob", "Alex"] -- must be "Jacob and Alex like this"
+likes ["Max", "John", "Mark"] -- must be "Max, John and Mark like this"
+likes ["Alex", "Jacob", "Mark", "Max"] -- must be "Alex, Jacob and 2 others like this"
+*/
+
+function likes(names) {
+    let length = names.length;
+    let string;
+
+    switch (true) {
+        case length === 0:
+            return 'no one likes this';
+        case length === 1:
+            return `${names[0]} likes this`
+        case length === 2:
+            return `${names[0]} and ${names[1]} like this`
+        case length === 3:
+            return `${names[0]}, ${names[1]} and ${names[2]} like this`
+        default:
+            return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+    }
+}
+
+
+/*
+console.log(likes([]));
+console.log(likes(['Peter']));
+console.log(likes(['Jacob', 'Alex']));
+console.log(likes(['Max', 'John', 'Mark']));
+console.log(likes(['Max', 'John', 'Mark', 'morty']));
+console.log(likes(['Max', 'John', 'Mark', 'luca', 'jackson']));
+*/
