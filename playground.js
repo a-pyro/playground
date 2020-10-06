@@ -163,3 +163,23 @@ console.log(likes(['Max', 'John', 'Mark']));
 console.log(likes(['Max', 'John', 'Mark', 'morty']));
 console.log(likes(['Max', 'John', 'Mark', 'luca', 'jackson']));
 */
+
+// Count the number of divisors of a positive integer n.
+
+// loop while testing n%2 === 0 
+// when true update counter add counter
+function getDivisorsCnt(n) {
+    let counter = 0;
+    for (let i = 1; i <= n; i++) {
+        if (n % i === 0) {
+            counter++
+        }
+    }
+    return counter
+}
+
+// console.log(getDivisorsCnt(4));
+// console.log(getDivisorsCnt(50000));
+// console.log(getDivisorsCnt(12));
+// console.log(getDivisorsCnt(5));
+// console.log(getDivisorsCnt(30));
