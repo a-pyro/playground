@@ -245,3 +245,28 @@ function sockMerchant(n, ar) {
 
 // console.log(arr);
 // console.log(arr.indexOf(arr[arr.length - 1]));
+
+/*Find Intersection
+Have the function FindIntersection(strArr) read the array of strings stored in strArr which will contain 2 elements: the first element will represent a list of comma-separated numbers sorted in ascending order, the second element will represent a second list of comma-separated numbers (also sorted). Your goal is to return a comma-separated string containing the numbers that occur in elements of strArr in sorted order. If there is no intersection, return the string false. */
+
+// console.log(sockMerchant(9, [10, 20, 20, 10, 10, 30, 50, 10, 20]));
+function FindIntersection(strArr) {
+  let output = '';
+  let firstString = strArr[0].split(', ');
+  let secondString = strArr[1].split(', ');
+  // code goes here
+  for (let element of firstString) {
+    if (secondString.includes(element)) {
+      output += `${element},`;
+    }
+    // console.log(element);
+  }
+  // console.log(output.slice(0, output.length - 1));
+  // console.log(typeof output);
+
+  return output === '' ? false : output.slice(0, output.length - 1);
+}
+
+// console.log(FindIntersection(['1, 3, 4, 7, 13', '1, 2, 4, 13, 15']));
+// console.log(FindIntersection(['1, 3, 9, 10, 17, 18', '1, 4, 9, 10']));
+// console.log(FindIntersection(['1, 3, 9, 10, 17, 18', '0, 4, 5, 7']));
