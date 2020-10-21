@@ -233,3 +233,15 @@ function sockMerchant(n, ar) {
 }
 
 //   console.log(sockMerchant(9, [10, 20, 20, 10, 10, 30, 50, 10, 20]));
+
+// let arr = [];
+// for (let i = 0; i < 8; i++) {
+//   arr.push(Math.floor(Math.random() * 9));
+// }
+// console.log(arr);
+// arr.sort(function (a, b) {
+//   return a - b;
+// });
+
+// console.log(arr);
+// console.log(arr.indexOf(arr[arr.length - 1]));
