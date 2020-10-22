@@ -270,3 +270,52 @@ function FindIntersection(strArr) {
 // console.log(FindIntersection(['1, 3, 4, 7, 13', '1, 2, 4, 13, 15']));
 // console.log(FindIntersection(['1, 3, 9, 10, 17, 18', '1, 4, 9, 10']));
 // console.log(FindIntersection(['1, 3, 9, 10, 17, 18', '0, 4, 5, 7']));
+
+function repeatedString(s, n) {
+  let asInTheS = 0;
+  for (let char of s) {
+    if (char === 'a') {
+      asInTheS++;
+    }
+  }
+
+  // so quante a cisono nella stringa
+  // quante volte ripeto?
+  let ripetute = n / s.length;
+
+  console.log(`a in in the string ${s}: `, asInTheS);
+  let repetitionBlocks = n / s.length;
+
+  // return n >= s.length
+  //   ? Math.ceil((n / s.length) * asInTheS)
+  //   : Math.floor((n / s.length) * asInTheS);
+}
+
+// console.log(1022 / 5);
+// console.log(1022 % 5);
+
+// console.log(repeatedString('a', 10));
+
+// console.log(Math.ceil((10 / 3) * 2));
+
+// console.log(Math.floor((2 / 3) * 2));
+
+function reverseLetter(str) {
+  //coding and coding..
+
+  return str.match(/[a-z]/g).reverse().join('');
+}
+// console.log(reverseLetter('abc3434def'));
+
+function wave(str) {
+  const output = [];
+  for (let i = 0; i < str.length; i++) {
+    output.push(
+      `${str.charAt(i - 1)}${str.charAt(i).toUpperCase()}${str.slice(i + 1)}`
+    );
+  }
+  return output;
+}
+console.log(wave('hello'));
+
+// ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
