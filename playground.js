@@ -309,10 +309,11 @@ function reverseLetter(str) {
 
 function wave(str) {
   const output = [];
+  let word = '';
   for (let i = 0; i < str.length; i++) {
-    output.push(
-      `${str.charAt(i - 1)}${str.charAt(i).toUpperCase()}${str.slice(i + 1)}`
-    );
+    // output.push(`${str.charAt(i).toUpperCase()}${str.slice(i + 1)}`);
+    word += str[i].toUpperCase();
+    output.push(str.replace(str.charAt(i), str.charAt(i).toUpperCase()));
   }
   return output;
 }
