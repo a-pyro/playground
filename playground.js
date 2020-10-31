@@ -1,3 +1,5 @@
+'use strict';
+
 /*
 Trolls are attacking your comment section!
 
@@ -385,3 +387,74 @@ const findEvenIndex = function (arr) {
 // console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
 // console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
 // console.log(findEvenIndex([20, 10, -80, 10, 10, 15, 35]));
+
+/* For building the encrypted string:
+Take every 2nd char from the string, then the other chars, that are not every 2nd char, and concat them as new String.
+Do this n times!
+
+Examples:
+
+"This is a test!", 1 -> "hsi  etTi sats!"
+"This is a test!", 2 -> "hsi  etTi sats!" -> "s eT ashi tist!"
+Write two methods:
+
+function encrypt(text, n)
+function decrypt(encryptedText, n)
+For both methods:
+If the input-string is null or empty return exactly this value!
+If n is <= 0 then return the input text. */
+
+const encrypt = (text, n) => {
+  // if n <= 0 return text
+  if (n <= 0) return text;
+  // if text is null or empty return null or empty
+  switch (text) {
+    case null:
+      return null;
+    case '':
+      return '';
+
+    default:
+      let textToEncrypt = text;
+
+      for (let k = 0; k < n; k++) {
+        const outputArr = [];
+        const textLength = text.length;
+        for (let i = 0; i < textLength; i++) {
+          const currentChar = textToEncrypt[i];
+          if (i % 2 !== 0) {
+            outputArr.push(currentChar);
+          } else {
+            continue;
+          }
+        }
+        for (let j = 0; j < textLength; j++) {
+          const currentChar = textToEncrypt[j];
+          if (j % 2 === 0) {
+            outputArr.push(currentChar);
+          } else {
+            continue;
+          }
+        }
+        textToEncrypt = outputArr.join('');
+      }
+      return textToEncrypt;
+  }
+  // split the string into an array
+  // every 2nd char will have odd index
+
+  // loop and check if index
+  // if so push in the array
+  // end of the loop = we have the array filled with 2nd chars
+  // new loop to push the chars with even index
+  // join the array in a new string
+};
+console.log(encrypt('This is a test!', -1));
+console.log(encrypt('This is a test!', 0));
+console.log(encrypt('This is a test!', 1));
+console.log(encrypt('This is a test!', 2));
+console.log(encrypt('This is a test!', 3));
+console.log(encrypt('This is a test!', 4));
+console.log(encrypt('This kata is very interesting!', 1));
+// console.log(encrypt('null', -1));
+// console.log(encrypt('null', -1));
