@@ -566,21 +566,28 @@ const greaterInt = (n1, n2, n3) => {
     }
 };
 
-console.log(greaterInt(6, 2, 3));
-console.log(greaterInt(6, 12, 3));
-console.log(greaterInt(6, 2, 40));
-console.log(greaterInt(6, 40, 40));
+// console.log(greaterInt(6, 2, 3));
+// console.log(greaterInt(6, 12, 3));
+// console.log(greaterInt(6, 2, 40));
+// console.log(greaterInt(6, 40, 40));
 
 /*
 5)
 Create a function to check whether two numbers are in range 40..60 or in the range 70..100 inclusive.
 */
 
+const ranger = (n1, n2) => {
+    return n1 >= 40 && n1 <= 60 && n1 >= 40 && n1 <= 60;
+};
+
 /*
 6) 
 Create a function to create a new string of specified copies (positive number) of a given string.
 */
-
+const fotocopiatrice = (text, n) => (n > 0 ? text.repeat(n) : 'invalid number');
+console.log(fotocopiatrice('ciao', 2));
+console.log(fotocopiatrice('ciao', 1));
+console.log(fotocopiatrice('ciao', 0));
 /*
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
