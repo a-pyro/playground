@@ -449,12 +449,70 @@ const encrypt = (text, n) => {
   // new loop to push the chars with even index
   // join the array in a new string
 };
-console.log(encrypt('This is a test!', -1));
-console.log(encrypt('This is a test!', 0));
-console.log(encrypt('This is a test!', 1));
-console.log(encrypt('This is a test!', 2));
-console.log(encrypt('This is a test!', 3));
-console.log(encrypt('This is a test!', 4));
-console.log(encrypt('This kata is very interesting!', 1));
+const decrypt = (encryptedText, n) => {
+  // if n <= 0 return text
+  if (n <= 0) return text;
+  // if text is null or empty return null or empty
+  switch (text) {
+    case null:
+      return null;
+    case '':
+      return '';
+
+    default:
+      let textToEncrypt = text;
+
+      for (let k = 0; k < n; k++) {
+        const outputArr = [];
+        const textLength = text.length;
+        for (let i = 0; i < textLength; i++) {
+          const currentChar = textToEncrypt[i];
+          if (i % 2 !== 0) {
+            outputArr.push(currentChar);
+          } else {
+            continue;
+          }
+        }
+        for (let j = 0; j < textLength; j++) {
+          const currentChar = textToEncrypt[j];
+          if (j % 2 === 0) {
+            outputArr.push(currentChar);
+          } else {
+            continue;
+          }
+        }
+        textToEncrypt = outputArr.join('');
+      }
+      return textToEncrypt;
+  }
+};
+
+// console.log(decrypt('This is a test!', -1));
+// console.log(decrypt('This is a test!', 0));
+// console.log(decrypt('This is a test!', 1));
+// console.log(decrypt('This is a test!', 2));
+// console.log(decrypt('This is a test!', 3));
+// console.log(decrypt('This is a test!', 4));
+// console.log(decrypt('This kata is very interesting!', 1));
 // console.log(encrypt('null', -1));
 // console.log(encrypt('null', -1));
+function oddIndexFinder(str) {
+  let counter = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 !== 0) counter++;
+  }
+  // console.log(counter);
+  const firstPart = str.slice(0, counter);
+  const secondPart = str.slice(counter);
+  // console.log(`${firstPart}${secondPart}`);
+  let output = '';
+  let k = 0;
+  while (output.length <= str.length) {
+    console.log(output, k);
+    output += `${secondPart[k]}${firstPart[k]}`;
+    k++;
+  }
+  console.log(output.slice(0, output.length - 1));
+}
+oddIndexFinder('hsi  etTi sats!');
+//hsi  etTi sats!
