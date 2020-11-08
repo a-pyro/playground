@@ -702,6 +702,11 @@ const stringer = (string) =>
 // console.log(stringer('hiiFYHRjdsovioi'));
 // 18)
 // Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+const sumRange = (n1, n2) => (n1 + n2 >= 50 && n1 + n2 <= 80 ? 65 : 80);
+
+// console.log(sumRange(50, 30));
+// console.log(sumRange(40, 80));
+
 // 19)
 // Create a function to convert a number to a string, the contents of which depend on the number's factors. Follow next example:
 // If the number has 3 as a factor, output 'Diego'.
@@ -715,5 +720,28 @@ const stringer = (string) =>
 // this would be a "DiegoRiccardo".
 // 34 has four factors: 1, 2, 17, and 34.
 // this would be "34".
+// const egoStrivers = (num) => {
+//     let answer = '';
+//     switch (true) {
+//         case num % 3 === 0:
+//             answer += 'Diego';
+//         case num % 5 === 0:
+//             answer += 'Riccardo';
+//         case num % 7 === 0:
+//             answer += 'Stefano';
+//         default:
+//             break;
+//     }
+//     return answer;
+// };
+// console.log(egoStrivers(28));
+// console.log(egoStrivers(30));
+
 // 20)
 // Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
+const acronymr = (string) =>
+    string.split(' ').reduce((ac, cv) => ac + cv.charAt(0), '');
+
+console.log(acronymr('British Broadcasting Corporation'));
+console.log(acronymr('British Cazzoni Corporation'));
+console.log(acronymr('America Broadcasting Corporation Defe eee'));
