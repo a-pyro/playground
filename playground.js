@@ -621,9 +621,21 @@ const checkArr = (arr) => arr.includes(1) || arr.includes(3);
 10)
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3
 */
-const checkArr2 = (arr) => !arr.includes(1) || arr.includes(3);
+const checkArr2 = (arr) => !arr.includes(1) || !arr.includes(3);
 // 11)
 // Create a function to find the longest string from a given array of strings.
+
+const longestStr = (arr) => {
+    let s = '';
+    arr.forEach((str) => {
+        if (str.length > s.length) {
+            s = str;
+        }
+    });
+    return s;
+};
+console.log(longestStr(['hi', 'hi', 'ciao', 'hello']));
+
 // 12)
 // Create a function to find the types of a given angle.
 // Types of angles:
@@ -631,8 +643,10 @@ const checkArr2 = (arr) => !arr.includes(1) || arr.includes(3);
 //     Right angle: An 90 degree angle.
 //     btuse angle: An angle between 90 and 180 degrees.
 //     Straight angle: A 180 degree angle.
+
 // 13)
 // Create a function to find the index of the greatest element of a given array of integers
+
 // 14)
 // Create a function to get the largest even number from an array of integers.
 // 16)
