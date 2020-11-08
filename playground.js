@@ -646,11 +646,51 @@ console.log(longestStr(['hi', 'hi', 'ciao', 'hello']));
 
 // 13)
 // Create a function to find the index of the greatest element of a given array of integers
+const greatestIndex = (arr) => {
+    let numb = 0;
+    let i;
+    arr.forEach((num, ind) => {
+        if (num >= numb) {
+            i = ind;
+            numb = num;
+        }
+    });
+    return i;
+};
+
+// console.log(greatestIndex([10, 23, 2]));
+// console.log(greatestIndex([10, 23, 200]));
+// console.log(greatestIndex([10000, 23, 200]));
 
 // 14)
 // Create a function to get the largest even number from an array of integers.
+
+const evenLargest = (arr) =>
+    arr.filter((value) => value % 2 === 0).sort((a, b) => a - b)[
+        arr.filter((value) => value % 2 === 0).sort((a, b) => a - b).length - 1
+    ];
+// console.log(evenLargest([103, 3432, 52, 100]));
+// console.log(evenLargest([100, 103, 344, 52, 90012]));
+
 // 16)
 // Create a function to check from two given integers, whether one is positive and another one is negative.
+const posnegInt = (n1, n2) => {
+    switch (true) {
+        case n1 >= 0 && n2 < 0:
+            return true;
+        case n2 >= 0 && n1 < 0:
+            return true;
+
+        default:
+            return false;
+    }
+};
+
+console.log(posnegInt(1, -1));
+console.log(posnegInt(-2, 2));
+console.log(posnegInt(1, 1));
+console.log(posnegInt(-2, -2));
+
 // 17)
 // Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case.
 // 18)
