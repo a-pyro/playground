@@ -742,6 +742,11 @@ const sumRange = (n1, n2) => (n1 + n2 >= 50 && n1 + n2 <= 80 ? 65 : 80);
 const acronymr = (string) =>
     string.split(' ').reduce((ac, cv) => ac + cv.charAt(0), '');
 
-console.log(acronymr('British Broadcasting Corporation'));
-console.log(acronymr('British Cazzoni Corporation'));
-console.log(acronymr('America Broadcasting Corporation Defe eee'));
+// console.log(acronymr('British Broadcasting Corporation'));
+// console.log(acronymr('British Cazzoni Corporation'));
+// console.log(acronymr('America Broadcasting Corporation Defe eee'));
+function sumPairs(ints, s) {
+    return [0, 0] || undefined;
+}
+
+console.log(sumPairs());
