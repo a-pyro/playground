@@ -634,7 +634,7 @@ const longestStr = (arr) => {
     });
     return s;
 };
-console.log(longestStr(['hi', 'hi', 'ciao', 'hello']));
+// console.log(longestStr(['hi', 'hi', 'ciao', 'hello']));
 
 // 12)
 // Create a function to find the types of a given angle.
@@ -761,4 +761,42 @@ function plusMinus(arr) {
     console.log((zeros / arrLen).toFixed(6));
 }
 
-plusMinus([-4, 3, -9, 0, 4, 1]);
+// plusMinus([-4, 3, -9, 0, 4, 1]);
+
+/* Staircase detail
+
+This is a staircase of size :
+
+   #
+  ##
+ ###
+####
+Its base and height are both equal to . It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
+
+Write a program that prints a staircase of size .
+
+Function Description
+
+Complete the staircase function in the editor below.
+
+staircase has the following parameter(s):
+
+int n: an integer
+Print
+
+Print a staircase as described above.
+
+ */
+
+function staircase(n) {
+    let char;
+    let space;
+    for (let i = 1; i <= n; i++) {
+        char = '#'.repeat(i);
+        space = ' '.repeat(n - i);
+        console.log(space + char);
+        // console.log(' '.repeat(n - i) + '#'.repeat(n - (n - i)));
+    }
+}
+
+staircase(5);
