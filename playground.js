@@ -854,9 +854,10 @@ function timeConversion(s) {
             return first2 + middle;
     }
 }
-
-/*  console.log(timeConversion('12:05:45PM'));
+/* 
+    console.log(timeConversion('12:05:45PM'));
     console.log(timeConversion('11:59:45PM'));
     console.log(timeConversion('12:05:45AM'));
     console.log(timeConversion('01:05:45AM'));
+
  */
