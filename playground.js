@@ -813,3 +813,50 @@ function miniMaxSum(arr) {
 }
 
 // miniMaxSum([9, 8, 3, 77, 34, 52]);
+
+/**You are in charge of the cake for a child's birthday. You have decided the cake will have one candle for each year of their total age. They will only be able to blow out the tallest of the candles. Count how many candles are tallest. */
+
+function birthdayCakeCandles(candles) {
+    return candles
+        .sort((a, b) => a - b)
+        .filter((el, ind, arr) => el === arr[arr.length - 1]).length;
+}
+
+// console.log(birthdayCakeCandles([3, 2, 2, 3]));
+// console.log(birthdayCakeCandles([3, 2, 6, 3]));
+// console.log(birthdayCakeCandles([9, 9, 9, 3]));
+
+/**Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+
+Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+- 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+
+ */
+
+function timeConversion(s) {
+    const last2 = s.slice(s.length - 2);
+    let first2 = s.slice(0, 2);
+    const middle = s.slice(2, s.length - 2);
+
+    switch (last2) {
+        case 'PM':
+            switch (true) {
+                case parseInt(first2) < 12:
+                    first2 = String(parseInt(first2) + 12);
+                    return first2 + middle;
+
+                default:
+                    return first2 + middle;
+            }
+
+        default:
+            parseInt(first2) === 12 ? (first2 = '00') : '';
+            return first2 + middle;
+    }
+}
+
+/*  console.log(timeConversion('12:05:45PM'));
+    console.log(timeConversion('11:59:45PM'));
+    console.log(timeConversion('12:05:45AM'));
+    console.log(timeConversion('01:05:45AM'));
+ */
