@@ -799,4 +799,17 @@ function staircase(n) {
     }
 }
 
-staircase(5);
+// staircase(5);
+
+/**Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers. */
+
+function miniMaxSum(arr) {
+    const sorted = arr.sort((a, b) => a - b);
+    console.log(sorted);
+    console.log(
+        sorted.slice(0, arr.length - 1).reduce((ac, cv) => ac + cv),
+        sorted.slice(1).reduce((ac, cv) => ac + cv)
+    );
+}
+
+// miniMaxSum([9, 8, 3, 77, 34, 52]);
