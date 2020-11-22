@@ -861,3 +861,33 @@ function timeConversion(s) {
     console.log(timeConversion('01:05:45AM'));
 
  */
+
+/* HackerLand University has the following grading policy:
+
+Every student receives a  in the inclusive range from  to .
+Any  less than  is a failing grade.
+Sam is a professor at the university and likes to round each student's  according to these rules:
+
+If the difference between the  and the next multiple of  is less than , round  up to the next multiple of .
+If the value of  is less than , no rounding occurs as the result will still be a failing grade. */
+
+function gradingStudents(grades) {
+    const result = [];
+    for (const grade of grades) {
+        if (grade < 38) {
+            result.push(grade);
+        } else {
+            if (grade % 5 === 4) {
+                result.push(grade + 1);
+            } else if (grade % 5 === 3) {
+                result.push(grade + 2);
+            } else if (grade % 5 === 1 || grade % 5 === 2) {
+                result.push(grade);
+            }
+        }
+    }
+    return result;
+}
+
+// gradingStudents([70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]);
+console.log(gradingStudents([73, 67, 38, 33]));
