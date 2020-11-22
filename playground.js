@@ -874,20 +874,30 @@ If the value of  is less than , no rounding occurs as the result will still be a
 function gradingStudents(grades) {
     const result = [];
     for (const grade of grades) {
-        if (grade < 38) {
-            result.push(grade);
-        } else {
-            if (grade % 5 === 4) {
-                result.push(grade + 1);
-            } else if (grade % 5 === 3) {
-                result.push(grade + 2);
-            } else if (grade % 5 === 1 || grade % 5 === 2) {
+        switch (true) {
+            case grade < 38 || grade === 100:
                 result.push(grade);
-            }
+                break;
+            case grade % 5 === 3:
+                result.push(grade + 2);
+
+                break;
+            case grade % 5 === 4:
+                result.push(grade + 1);
+
+                break;
+
+            default:
+                result.push(grade);
+
+                break;
         }
     }
-    return result;
 }
 
 // gradingStudents([70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80]);
-console.log(gradingStudents([73, 67, 38, 33]));
+// console.log(gradingStudents([73, 67, 38, 33]));
+
+for (let grade = 38; grade <= 98; grade++) {
+    console.log(`Grade:${grade} % 5 = ${grade % 5}`);
+}
