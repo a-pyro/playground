@@ -927,3 +927,30 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
     console.log(apples.filter((d) => d + a >= a && d + a <= t).length);
     console.log(oranges.filter((d) => d + b >= a && d + b <= t).length); */
 }
+
+/* 
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+solution("camelCasing")  ==  "camel Casing" */
+
+const solution = (string) => {
+    /* let out = '';
+    for (const letter of string) {
+        if (letter.toUpperCase() === letter) {
+            out += ` ${letter}`;
+            continue;
+        }
+        out += letter;
+    }
+    return out; */
+
+    return string
+        .split('')
+        .map((el) => {
+            return el.toUpperCase() === el ? ` ${el}` : el;
+        })
+        .join('');
+};
+
+console.log(solution('amelCasingCasaSucacazzAmore'));
