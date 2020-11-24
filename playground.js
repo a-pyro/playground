@@ -975,3 +975,41 @@ const firstNonRep = (str) => {
     }
     return ' ';
 };
+
+/* 
+Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+
+Notes:
+
+Only lower case letters will be used (a-z). No punctuation or digits will be included.
+Performance needs to be considered
+Input strings s1 and s2 are null terminated.
+Examples
+scramble('rkqodlw', 'world') ==> True
+scramble('cedewaraaossoqqyt', 'codewars') ==> True
+scramble('katas', 'steak') ==> False
+ */
+
+function scramble(str1, str2) {
+    const arr1 = [...str1];
+    const arr2 = [...str2];
+    /*     const fil = arr2.filter((e) => !arr1.includes(e));
+    console.log(fil);
+    return fil.length !== 0 ? false : true; */
+    // devo cercare se una stringa è contentuta nell'altra
+    // se ogni lettera di una stringa è contenuta nell'altra
+    arr1.forEach((el) => {
+        arr2.includes(el)
+            ? arr2.splice(arr2.indexOf(el), 1)
+            : console.log('el not inluded or already removed');
+
+        // console.log(el);
+        // console.log(arr2);
+    });
+    // console.log(arr1);
+    // console.log(arr2);
+    return arr2.length === 0;
+}
+
+// scramble('rkqodlw', 'world');
+// scramble('katazs', 'steak');
