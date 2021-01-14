@@ -1059,3 +1059,59 @@ function anagrams(word, words) {
 solution from other users
 let anagrams = (word, words) => words.filter(w => w.split('').sort().join('') === word.split('').sort().join(''));
 */
+
+/* -------------------------
+valid parentheses
+Write a function called that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+
+Examples
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+Constraints
+0 <= input.length <= 100
+
+
+*/
+
+function validParentheses(parens) {
+    console.log(parens);
+    const pare = '()';
+    let result = false;
+    let temp = parens.slice(0);
+    switch (true) {
+        case parens.length === 1:
+            console.log(parens, result);
+
+            return result;
+        case parens[0] === ')':
+            console.log(parens, result);
+
+            return result;
+        case parens[parens.length - 1] === '(':
+            console.log(parens, result);
+
+            console.log(parens, result);
+
+            return result;
+        default:
+            for (let i = 0; i < parens.length / 2; i++) {
+                temp = temp.replace(pare, '');
+                if (temp.length === 0) {
+                    result = true;
+                    console.log(parens, result);
+                    return result;
+                }
+            }
+
+            console.log(parens, result);
+
+            return result;
+    }
+}
+
+validParentheses('()');
+validParentheses(')(()))');
+validParentheses('(');
+validParentheses('(())((()())())');
