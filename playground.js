@@ -17,7 +17,7 @@ function disemvowel(str) {
     let charArr = str.split('');
 
     let arrNotVowel = [];
-    charArr.forEach((element) => {
+    charArr.forEach(element => {
         if (!'aeiou'.includes(element.toLowerCase())) {
             arrNotVowel.push(element);
         }
@@ -592,7 +592,7 @@ const fotocopiatrice = (text, n) => (n > 0 ? text.repeat(n) : 'invalid number');
 7)
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
-const city = (text) =>
+const city = text =>
     text.toLowerCase().slice(0, 3).includes('los') ||
     text.toLowerCase().slice(0, 3).includes('new')
         ? text
@@ -607,13 +607,13 @@ const city = (text) =>
 8)
 Create a function to calculate the sum of three elements of a given array of integers of length 3.
 */
-const sumArr = (arr) => arr.reduce((ac, cv) => ac + cv);
+const sumArr = arr => arr.reduce((ac, cv) => ac + cv);
 // console.log(sumArr([3, 6, 9]));
 /*
 9)
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
-const checkArr = (arr) => arr.includes(1) || arr.includes(3);
+const checkArr = arr => arr.includes(1) || arr.includes(3);
 // console.log(checkArr([0, 5]));
 // console.log(checkArr([1, 5]));
 // console.log(checkArr([3, 5]));
@@ -621,13 +621,13 @@ const checkArr = (arr) => arr.includes(1) || arr.includes(3);
 10)
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3
 */
-const checkArr2 = (arr) => !arr.includes(1) || !arr.includes(3);
+const checkArr2 = arr => !arr.includes(1) || !arr.includes(3);
 // 11)
 // Create a function to find the longest string from a given array of strings.
 
-const longestStr = (arr) => {
+const longestStr = arr => {
     let s = '';
-    arr.forEach((str) => {
+    arr.forEach(str => {
         if (str.length > s.length) {
             s = str;
         }
@@ -646,7 +646,7 @@ const longestStr = (arr) => {
 
 // 13)
 // Create a function to find the index of the greatest element of a given array of integers
-const greatestIndex = (arr) => {
+const greatestIndex = arr => {
     let numb = 0;
     let i;
     arr.forEach((num, ind) => {
@@ -665,9 +665,9 @@ const greatestIndex = (arr) => {
 // 14)
 // Create a function to get the largest even number from an array of integers.
 
-const evenLargest = (arr) =>
-    arr.filter((value) => value % 2 === 0).sort((a, b) => a - b)[
-        arr.filter((value) => value % 2 === 0).sort((a, b) => a - b).length - 1
+const evenLargest = arr =>
+    arr.filter(value => value % 2 === 0).sort((a, b) => a - b)[
+        arr.filter(value => value % 2 === 0).sort((a, b) => a - b).length - 1
     ];
 // console.log(evenLargest([103, 3432, 52, 100]));
 // console.log(evenLargest([100, 103, 344, 52, 90012]));
@@ -693,7 +693,7 @@ const posnegInt = (n1, n2) => {
 
 // 17)
 // Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case.
-const stringer = (string) =>
+const stringer = string =>
     string.length <= 3
         ? string.toUpperCase()
         : `${string.slice(0, 3).toLowerCase()}${string.slice(3).toUpperCase()}`;
@@ -739,7 +739,7 @@ const sumRange = (n1, n2) => (n1 + n2 >= 50 && n1 + n2 <= 80 ? 65 : 80);
 
 // 20)
 // Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
-const acronymr = (string) =>
+const acronymr = string =>
     string.split(' ').reduce((ac, cv) => ac + cv.charAt(0), '');
 
 // console.log(acronymr('British Broadcasting Corporation'));
@@ -753,9 +753,9 @@ Note: This challenge introduces precision problems. The test cases are scaled to
 
 function plusMinus(arr) {
     const arrLen = arr.length;
-    const positives = arr.filter((el) => el > 0).length;
-    const negatives = arr.filter((el) => el < 0).length;
-    const zeros = arr.filter((el) => el === 0).length;
+    const positives = arr.filter(el => el > 0).length;
+    const negatives = arr.filter(el => el < 0).length;
+    const zeros = arr.filter(el => el === 0).length;
     console.log((positives / arrLen).toFixed(6));
     console.log((negatives / arrLen).toFixed(6));
     console.log((zeros / arrLen).toFixed(6));
@@ -914,11 +914,11 @@ Given the value of  for  apples and  oranges, determine how many apples and oran
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
     let [app, or] = [0, 0];
 
-    apples.forEach((d) => {
+    apples.forEach(d => {
         if (a + d >= s && a + d <= t) app++;
     });
 
-    oranges.forEach((d) => {
+    oranges.forEach(d => {
         if (b + d >= s && b + d <= t) or++;
     });
     console.log(app);
@@ -934,7 +934,7 @@ Complete the solution so that the function will break up camel casing, using a s
 Example
 solution("camelCasing")  ==  "camel Casing" */
 
-const solution = (string) => {
+const solution = string => {
     /* let out = '';
     for (const letter of string) {
         if (letter.toUpperCase() === letter) {
@@ -947,7 +947,7 @@ const solution = (string) => {
 
     return string
         .split('')
-        .map((el) => {
+        .map(el => {
             return el.toUpperCase() === el ? ` ${el}` : el;
         })
         .join('');
@@ -965,7 +965,7 @@ As an added challenge, upper- and lowercase letters are considered the same char
 If a string contains all repeating characters, it should return an empty string ("") or None -- see sample tests.
 */
 
-const firstNonRep = (str) => {
+const firstNonRep = str => {
     for (const letter of str) {
         let counter = 0;
         for (const checkLetter of str) {
@@ -998,7 +998,7 @@ function scramble(str1, str2) {
     return fil.length !== 0 ? false : true; */
     // devo cercare se una stringa è contentuta nell'altra
     // se ogni lettera di una stringa è contenuta nell'altra
-    arr1.forEach((el) => {
+    arr1.forEach(el => {
         arr2.includes(el)
             ? arr2.splice(arr2.indexOf(el), 1)
             : console.log('el not inluded or already removed');
