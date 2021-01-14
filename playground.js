@@ -1049,8 +1049,13 @@ function anagrams(word, words) {
     return anagrams;
 }
 
-anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']);
+// anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']);
 
-anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']);
+// anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']);
 
-anagrams('laser', ['lazing', 'lazy', 'lacer']);
+// anagrams('laser', ['lazing', 'lazy', 'lacer']);
+
+/* 
+solution from other users
+let anagrams = (word, words) => words.filter(w => w.split('').sort().join('') === word.split('').sort().join(''));
+*/
