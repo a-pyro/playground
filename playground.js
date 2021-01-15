@@ -1156,4 +1156,36 @@ function deleteNth(arr, n) {
 }
 
 // deleteNth([20, 37, 20, 21], 1); //[20,37,21])
-deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3); // [1, 1, 3, 3, 7, 2, 2, 2])
+// deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3); // [1, 1, 3, 3, 7, 2, 2, 2]
+
+/* 
+Complete the solution so that it strips all text that follows any of a set of comment markers passed in. Any whitespace at the end of the line should also be stripped out. */
+const stripComments = (input, marker) => {
+    console.log(input);
+    const splitted = input.split('\n');
+    console.log(splitted);
+    let result = [];
+
+    for (const line of splitted) {
+        console.log(line);
+        let mark = null;
+
+        marker.forEach(el => {
+            if ([...line].includes(el)) {
+                mark = el;
+            }
+        });
+        console.log(mark);
+
+        mark === null
+            ? result.push(line.trim())
+            : result.push(line.slice(0, line.indexOf(mark)).trim());
+    }
+    console.log(result.join('\n'));
+    return result.join('\n');
+};
+
+stripComments('apples, pears # and bananas\ngrapes\nbananas !apples', [
+    '#',
+    '!',
+]);
