@@ -1165,7 +1165,11 @@ const stripComments = (input, marker) => {
     const splitted = input.split('\n');
     console.log(splitted);
     let result = [];
+    const regexp = new RegExp(
+        marker.reduce((acc, next) => acc + `${next}`, '[') + ']'
+    );
 
+    console.log('regex', regexp);
     for (const line of splitted) {
         console.log(line);
         let mark = null;
