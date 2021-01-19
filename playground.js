@@ -1189,7 +1189,88 @@ const stripComments = (input, marker) => {
     return result.join('\n');
 };
 
-stripComments('apples, pears # and bananas\ngrapes\nbananas !apples', [
+/* stripComments('apples, pears # and bananas\ngrapes\nbananas !apples', [
     '#',
     '!',
 ]);
+ */
+
+function sumIntervals(intervals) {
+    //metto in ordine
+    const sorted = intervals.sort((a, b) => a[1] - b[1]);
+    console.table(sorted);
+
+    //accoprare intervalli
+
+    // se l'inizio del prossimo intervallo è <= all'inizio dell'intervallo corrente allora accorpo i due intervali (int start current int end del next)
+
+    const accorpati = [];
+    let i = 0;
+
+    /*   while (true) {
+        const [currentStart, currentEnd] = sorted[i];
+        const [nextStart, nextEnd] =
+            sorted[i + 1] === undefined ? [null, null] : sorted[i + 1];
+
+        console.log('curr', currentStart, currentEnd);
+        console.log('next', nextStart, nextEnd);
+        if (nextStart) {
+            //se non sono all'ultimo elemento
+            //se overlappano
+            if (nextStart <= currentEnd) {
+                //li unico e spingo
+                accorpati.push([currentStart, nextEnd]);
+                //se li ho accorpati devo trovare un modo per evitare che alla prossima iterazione il current diventi il next di questo giro, perchè l'ho già usato
+                console.log('curr BEFORE SPLICE', currentStart, currentEnd, i);
+                console.log('next BEFORE SPLICE', nextStart, nextEnd, i);
+                console.log(
+                    sorted.splice(sorted.indexOf([nextStart, nextEnd]), 1),
+                    1
+                );
+                i++;
+            } else {
+                //non overlappano, spingo il corrente
+                accorpati.push(currentStart, currentEnd);
+                i++;
+            }
+        } else {
+            // sono all'ultimo elemento
+            //spingo l'ultimo ed esco
+            accorpati.push([currentStart, currentEnd]);
+
+            break;
+        }
+    } */
+
+    //parto dal primo
+    //faccio un giro su tutti gli intervall
+    // [st, end] se next[start] <= curr[End] lo accorpo
+    // se lo accorpo elimino il next, e vado a quello successivo accorpando tutti gli accorpabili ed eliminandoli ma mano che li trovo. aggiungo cio' che rimane
+
+    console.table(accorpati);
+
+    //senza overlap
+    const answer = sorted.reduce((acc, cv) => {
+        return acc + (cv[1] - cv[0]);
+    }, 0);
+    // console.log(answer);
+}
+/* sumIntervals([
+    [1, 2],
+    [6, 10],
+    [11, 15],
+]); // => 9 */
+
+sumIntervals([
+    [1, 4],
+    [7, 10],
+    [3, 5],
+]); // => 7
+
+/* sumIntervals([
+    [1, 5],
+    [10, 20],
+    [1, 6],
+    [16, 19],
+    [5, 11],
+]); // => 19 */
