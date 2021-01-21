@@ -749,7 +749,7 @@ const acronymr = string =>
 /*
 Given an array of integers, calculate the ratios of its elements that are positive, negative, and zero. Print the decimal value of each fraction on a new line with  places after the decimal.
 
-Note: This challenge introduces precision problems. The test cases are scaled to six decimal places, though answers with absolute error of up to  are acceptable.*/
+Note: This challenge introduces precision problems. The test cases are scaled to six decimal places, though answers with roundolute error of up to  are acceptable.*/
 
 function plusMinus(arr) {
     const arrLen = arr.length;
@@ -1198,7 +1198,7 @@ const stripComments = (input, marker) => {
 function sumIntervals(intervals) {
     //metto in ordine
     const sorted = intervals.sort((a, b) => a[1] - b[1]);
-    console.table(sorted);
+    // console.table(sorted);
 
     //accoprare intervalli
 
@@ -1247,7 +1247,7 @@ function sumIntervals(intervals) {
     // [st, end] se next[start] <= curr[End] lo accorpo
     // se lo accorpo elimino il next, e vado a quello successivo accorpando tutti gli accorpabili ed eliminandoli ma mano che li trovo. aggiungo cio' che rimane
 
-    console.table(accorpati);
+    // console.table(accorpati);
 
     //senza overlap
     const answer = sorted.reduce((acc, cv) => {
@@ -1288,3 +1288,198 @@ arrayDiff([1,2,2,2,3],[2]) == [1,3]
 function arrayDiff(a, b) {
     return a.filter(el => !b.includes(el));
 }
+
+/* 
+This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
+Requirements:
+
+There must be a function for each number from 0 ("zero") to 9 ("nine")
+There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby and Python)
+Each calculation consist of exactly one operation and two numbers
+The most outer function represents the left operand, the most inner function represents the right operand
+Division should be integer division. For example, this should return 2, not 2.666666...:
+eight(dividedBy(three()));
+*/
+
+function zero() {
+    const myVal = 0;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function one() {
+    const myVal = 1;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function two() {
+    const myVal = 2;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function three() {
+    const myVal = 3;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function four() {
+    const myVal = 4;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function six() {
+    const myVal = 6;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function eight() {
+    const myVal = 8;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function nine() {
+    const myVal = 9;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function seven() {
+    const myVal = 7;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function five() {
+    const myVal = 5;
+    //se non ha args ritorna il valore
+    if (Array.from(arguments).length === 0) {
+        // console.log('non ho argomenti e ritorno il mio valore:', myVal);
+        return myVal;
+    } else {
+        //ha args quindi li usa
+        const result = Math.floor(eval(`${myVal}${Array.from(arguments)[0]}`));
+        console.log(result);
+        return result;
+        // console.log(Array.from(arguments)[0]);
+    }
+}
+
+function plus(num) {
+    return `+${num}`;
+}
+function minus(num) {
+    return `-${num}`;
+}
+function times(num) {
+    return `*${num}`;
+}
+
+function dividedBy(num) {
+    return `/${num}`;
+}
+
+seven(times(five())); // 35
+four(plus(nine())); // 13
+eight(minus(three())); // 5
+six(dividedBy(two())); // 3
