@@ -1479,7 +1479,38 @@ function dividedBy(num) {
     return `/${num}`;
 }
 
-seven(times(five())); // 35
-four(plus(nine())); // 13
-eight(minus(three())); // 5
-six(dividedBy(two())); // 3
+// seven(times(five())); // 35
+// four(plus(nine())); // 13
+// eight(minus(three())); // 5
+// six(dividedBy(two())); // 3
+
+/* unique in order 
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+For example:
+
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+*/
+
+const uniqueInOrder = function (iterable) {
+    if (Array.isArray(iterable)) {
+        const result = iterable.reduce((acc, cv) => {
+            if (acc[acc.length - 1] !== cv) acc.push(cv);
+            return acc;
+        }, []);
+        console.log(result);
+        return result;
+    } else {
+        const arr = iterable.split('');
+        const result = arr.reduce((acc, cv) => {
+            if (acc[acc.length - 1] !== cv) acc.push(cv);
+            return acc;
+        }, []);
+        console.log(result);
+        return result;
+    }
+};
+
+// uniqueInOrder('AAAABBBCCDAABBB'); // ['A', 'B', 'C', 'D', 'A', 'B']
