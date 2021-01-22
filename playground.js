@@ -1513,4 +1513,10 @@ const uniqueInOrder = function (iterable) {
     }
 };
 
-// uniqueInOrder('AAAABBBCCDAABBB'); // ['A', 'B', 'C', 'D', 'A', 'B']
+const uniqueInOrderRefactor = iterable => {
+    return [...iterable].reduce(
+        (acc, cv) => (acc[acc.length - 1] !== cv ? acc.concat(cv) : acc),
+        []
+    );
+};
+console.log(uniqueInOrderRefactor('AAAABBBCCDAABBB'));
