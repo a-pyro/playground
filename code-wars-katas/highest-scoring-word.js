@@ -17,10 +17,16 @@ const highest = (sentence) => {
     let currentPoints = 0;
     for (const letter of word.toUpperCase()) {
       currentPoints += letter.charCodeAt() - 64;
-      console.log(letter.charCodeAt() - 64);
+    }
+    if (currentPoints > highestPoint) {
+      highestPoint = currentPoints;
+      highest = word;
     }
   }
+
+  return highest;
 };
+
 console.log(highest('man i need a taxi up to ubud'), 'taxi');
 console.log(highest('what time are we climbing up the volcano'), 'volcano');
 console.log(highest('take me to semynak'), 'semynak');
