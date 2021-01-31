@@ -37,3 +37,10 @@ console.log(dirReduc(['NORTH', 'WEST', 'SOUTH', 'EAST']), [
   'EAST',
 ]);
 console.log(dirReduc(['NORTH', 'SOUTH', 'EAST', 'WEST', 'EAST', 'WEST']), []);
+const divisori = (d) =>
+  Array(d)
+    .fill(0)
+    .map((el, i) => (el = i + 1))
+    .filter((_, idx) => d % (idx + 1) === 0);
+console.log(divisori(15));
+console.log(divisori(25));
